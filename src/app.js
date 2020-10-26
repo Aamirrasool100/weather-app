@@ -7,6 +7,7 @@ const path = require('path')
 const ejs = require('ejs')
 const { urlencoded } = require('express')
 const app = express()
+const port = process.env.PORT
 const viewsPath = path.join(__dirname,'../src/templates/views')
 const partialsPath = path.join(__dirname,'../src/templates/partials')
 app.use(express.static(path.join(__dirname,'../public')))
@@ -55,4 +56,4 @@ app.get('/help',(req,res)=>{
 app.get('*',(req,res)=>{
     res.render('404')
 })
-app.listen(5000,console.log('listening on port 3000'))
+app.listen(port || 5000,console.log('listening on port ' + port))
