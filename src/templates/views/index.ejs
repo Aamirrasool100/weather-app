@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
 </head>
+
 <body>
     <%- include( 'header') -%>
-        <div class="content">
-          <form  class="form" action="/weather" method="post">
-              <input class="input" name="input" type="text" placeholder="Enter Your Location in order to get Weather forecast" autofocus >
-              <button class="btn" type="submit"> Search</button>
-          </form>
-          <div class="message-box">
-                  <p class="message-heading"></p>
-                  <p class="message-paragraph"></p>
-          </div>
+    <div class="content">
+        <form class="form" action="/weather" method="post">
+            <div>
+                <label for="input"> Get Weather Forecast</label>
+            </div>
+
+            <input class="input" name="input" type="text" placeholder="Enter Your Location" autofocus>
+            <button class="btn" type="submit"> Search</button>
+        </form>
+        <div class="message-box">
+            <p class="message-heading"></p>
+            <p class="message-paragraph"></p>
         </div>
+    </div>
     <%- include( 'footer') -%>
     <script src="./js/js.js"></script>
 </body>
+
 </html>
