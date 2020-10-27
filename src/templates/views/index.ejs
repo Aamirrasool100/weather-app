@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Henny+Penny&family=Montserrat:ital,wght@0,200;0,600;1,400&display=swap"
+        rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home page</title>
 </head>
@@ -12,16 +15,31 @@
     <%- include( 'header') -%>
     <div class="content">
         <form class="form" action="/weather" method="post">
-            <div>
-                <label for="input"> Get Weather Forecast</label>
+            <input class="input" name="input" type="text" placeholder="Enter Your Location" autofocus>
+            <button class="btn" type="submit">Search</button>
+        </form>
+        <div class="other-params">
+            <p class="wind-speed">wind: <span class="wind-speed-value"></span></p>
+            <p class="humidity">Humidity: <span class="humidity-value"></span></p>
+            <p class="cloud-cover">Cloud: <span class="cloud-value"></span></p>
+            <p class="lat">Latitude: <span class="lat-value"></span></p>
+            <p class="long">Longitude: <span class="long-value"></span></p>
+        </div>
+        <div class="message-box">
+            <div class="temp-box1">
+                <p class="current-summary">.</p>
+                <p class="temperature"></p>
+            </div>
+            <div class="temp-box2">
+                <p class="temp-feels">Feels like: <span class="temp-feels-value"></span></p>
+                <p class="temp-high">low:<span class="low-temp-value"></span></p>
+                <p class="temp-low">high:<span class="high-temp-value"></span></p>
+            </div>
+            <div class="daily-summary">
+                <p class="daily-summary-value"></p>
+                <p class="precip-probability"><span class="precip-value"></span><span class="precip-type-value"></span>
             </div>
 
-            <input class="input" name="input" type="text" placeholder="Enter Your Location" autofocus>
-            <button class="btn" type="submit"> Search</button>
-        </form>
-        <div class="message-box">
-            <p class="message-heading"></p>
-            <p class="message-paragraph"></p>
         </div>
     </div>
     <%- include( 'footer') -%>

@@ -1,5 +1,19 @@
 const form = document.querySelector('.form')
 const input =  document.querySelector('.input')
+const currentSummary = document.querySelector('.current-summary')
+const dailySummary = document.querySelector('.daily-summary-value')
+const temperature = document.querySelector(".temperature")
+const temperatureHigh = document.querySelector(".high-temp-value")
+const temperatureLow = document.querySelector(".low-temp-value")
+const temperatureFeels = document.querySelector(".temp-feels-value")
+const precipProbability = document.querySelector(".precip-value")
+const precipProbabilityType = document.querySelector(".precip-type-value")
+const lat = document.querySelector(".lat-value")
+const long = document.querySelector(".long-value")
+const time = document.querySelector(".time")
+const cloud = document.querySelector('.cloud-value')
+const windSpeed = document.querySelector(".wind-speed-value")
+const humidity = document.querySelector(".humidity-value")
 form.addEventListener('submit',(e)=>{
     e.preventDefault()
     const location =  input.value
@@ -8,9 +22,23 @@ form.addEventListener('submit',(e)=>{
     response.json().then((data)=>{
         console.log(data);
         if(data.error){
-            document.querySelector('.message-paragraph').innerHTML = data.error
+        response.send(document.querySelector('.message-box').textContent = data.error)
         }else{
-             document.querySelector('.message-heading').innerHTML = data.forecast 
+            
+            currentSummary.textContent = data.currentSummary
+            dailySummary.textContent = data.dailySummary
+            precipProbability.textContent = `${data.precipProbability}% `
+            precipProbabilityType.textContent = ` chances of ${data.precipType}`
+            temperatureFeels.innerHTML = `${data.temperature}&#176`
+            temperature.innerHTML = `${data.temperature}&#176`
+            temperatureHigh.innerHTML = `${data.tempHigh}&#176`
+            temperatureLow.innerHTML = `${data.tempLow}<span>&#176</span>`
+            lat.textContent = data.lat
+            long.textContent  =data.long
+            time.textContent  = data.time
+            windSpeed.textContent  =data.windSpeed
+            humidity.textContent = data.humidity
+            cloud.textContent = data.cloudCover
         }
     })
 })

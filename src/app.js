@@ -7,7 +7,7 @@ const path = require('path')
 const ejs = require('ejs')
 const { urlencoded } = require('express')
 const app = express()
-const port = process.env.PORT
+const port = process.env.PORT || 5000
 const viewsPath = path.join(__dirname,'../src/templates/views')
 const partialsPath = path.join(__dirname,'../src/templates/partials')
 app.use(express.static(path.join(__dirname,'../public')))
@@ -30,14 +30,29 @@ app.get('/weather',(req,res)=>{
         if(error){
             return res.send({error})
         }
-        weatherCode(latitude,longitude,(error,data)=>{
+        weatherCode(latitude,longitude,(error,{time,precipType,humidity,
+            temperature,lat,long,
+            precipProbability,windSpeed,currentSummary,
+            cloudCover,dailySummary,tempLow,
+            tempHigh} = {})=>{
             if(error){
                 return res.send({error})
             }
+            console.log();
             res.send({
-                "forecast":data,
-                location,
-                "address":req.query.address
+                time,
+                humidity,
+                temperature,
+                lat,
+                long,
+                precipProbability,
+                windSpeed,
+                currentSummary,
+                dailySummary,
+                cloudCover,
+                precipType:"rain",
+                tempHigh,
+                tempLow
             })
         })
     })
@@ -56,4 +71,4 @@ app.get('/help',(req,res)=>{
 app.get('*',(req,res)=>{
     res.render('404')
 })
-app.listen(port || 5000,console.log('listening on port ' + port))
+app.listen(port,console.log('listening on port ' + port))
