@@ -14,7 +14,7 @@ const weatherCode = (latitude, longitude,cb) => {
         } else {
             cb(undefined,{
 
-                "time":moment().format('MMMM Do YYYY, h:mm a'),
+                "time":moment().format('MMMM Do YYYY'),
                  "currentSummary":res.body.currently.summary,
                  "dailySummary":res.body.daily.data[0].summary,
                  "temperature":res.body.currently.temperature,
