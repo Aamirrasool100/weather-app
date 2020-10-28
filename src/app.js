@@ -64,9 +64,7 @@ app.post('/weather',(req,res)=>{
 app.get('/about',(req,res)=>{
     res.render('about',{name:'amir'})
 })
-app.get('/help',(req,res)=>{
-    res.render('help',{name:'amir'})
-})
+
 
 app.get('*',(req,res)=>{
     res.render('404')

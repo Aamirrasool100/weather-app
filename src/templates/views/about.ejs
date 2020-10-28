@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="./css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About</title>
 </head>
+
 <body>
-   <%- include('header') -%>
-         ready to help you out
-   <%- include('footer') -%>
+    <%- include('header') -%>
+    <div class="center">
+        <h3 class="about-heading">This app uses two API'S namely
+            <strong><em>The DARKSKY API</em></strong>
+            <strong><em>The MAPBOX API</em></strong>
+        </h3>
+        <p class="about-para">
+            The Dark Sky API allows you to look up the weather anywhere on the globe, returning (where available):</p>
+           <p style="font-size:1.4rem">  → Current weather conditions</p>
+        
+    </div>
+    <div class="center">
+        <h3  class="about-heading">The Mapbox Search service is composed of the following:</h3>
+        <p class="about-para">
+            → Geocoding:
+            The Mapbox Geocoding API does two things: forward geocoding and reverse geocoding.
+
+            Forward geocoding
+            converts location text into
+            geographic coordinates, turning 2 Lincoln Memorial Circle NW into -77.050,38.889.
+
+            Reverse geocoding turns geographic
+            coordinates into place names, turning -77.050, 38.889 into 2 Lincoln Memorial Circle NW. These location
+            names can vary in specificity, from individual addresses to states and countries that contain the given
+            coordinates
+        </p>
+    </div>
+    <%- include('footer') -%>
 </body>
+
 </html>

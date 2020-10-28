@@ -29,16 +29,16 @@ form.addEventListener('submit',(e)=>{
             dailySummary.textContent = data.dailySummary
             precipProbability.textContent = `${data.precipProbability}% `
             precipProbabilityType.textContent = ` chances of ${data.precipType}`
-            temperatureFeels.innerHTML = `${data.temperature}&#176`
+            temperatureFeels.innerHTML = `Feels like: ${data.temperature}&#176`
             temperature.innerHTML = `${data.temperature}&#176`
-            temperatureHigh.innerHTML = `${data.tempHigh}&#176`
-            temperatureLow.innerHTML = `${data.tempLow}<span>&#176</span>`
-            lat.textContent = data.lat
-            long.textContent  =data.long
+            temperatureHigh.innerHTML = `High: ${data.tempHigh}&#176`
+            temperatureLow.innerHTML = `Low: ${data.tempLow}&#176`
+            lat.textContent = `Latitude: ${data.lat}`
+            long.textContent  =`Longitude: ${data.long}`
             time.textContent  = data.time
-            windSpeed.textContent  =data.windSpeed
-            humidity.textContent = data.humidity
-            cloud.textContent = data.cloudCover
+            windSpeed.textContent  = `wind: ${data.windSpeed}`
+            humidity.textContent = `Humidity: ${data.humidity}`
+            cloud.textContent = `Cloud: ${data.cloudCover}`
         }
     })
 })
