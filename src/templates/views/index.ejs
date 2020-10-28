@@ -14,12 +14,10 @@
 <body>
     <%- include( 'header') -%>
     <div class="content">
-        <form class="form" action="/weather" method="post">
-            <input class="input" name="input" type="text" placeholder="Enter Your Location" autofocus>
-            <button class="btn" type="submit">Search</button>
-        </form>
+        <p class="address"></p>
         <div class="other-params">
-            <p class="wind-speed"> <span class="wind-speed-value"></span></p>
+           
+            <p class="wind-speed"><span class="wind-speed-value"></span></p>
             <p class="humidity"><span class="humidity-value"></span></p>
             <p class="cloud-cover"><span class="cloud-value"></span></p>
             <p class="lat"><span class="lat-value"></span></p>

@@ -5,30 +5,33 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 .logo{
-    padding:0 1.4rem;
     font-family: 'Henny Penny', cursive;
+    padding-left:2rem;
 }
 .header{
     background-color: rgb(26, 16, 16);
     color:teal;
    
 }
+.address{
+    font-size:1.4rem;
+    text-align:center;
+    font-weight:600
+}
 a{
     text-decoration: none;
     color:#fff;text-transform: capitalize;
-    float:right;
-    cursor: pointer;
+   cursor: pointer;
 }
 .flex{
     display:flex;
     justify-content:space-between;
-    justify-items:center;
 }
 .item{
     list-style: none;
     padding-right:2rem;
-    font-size:20px;
     display:flex;
+    font-size:1.5rem;
     justify-content: space-evenly;
 
 }
@@ -43,16 +46,18 @@ a{
 }
 .content{
     position:absolute;top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-   
+    left:40%;
+    transform:translate(-40%,-50%);
+
+}
+.form{
+    margin-top:2rem
 }
 .input{
     border:none;
     outline:none;
     background-color: rgb(238, 236, 236);
     padding:.7rem 4rem;
-    margin-left:10rem;
     border-bottom:2px solid rgba(0,0,0,0.5);
     border-radius:10rem;
 }

@@ -52,7 +52,8 @@ app.get('/weather',(req,res)=>{
                 cloudCover,
                 precipType:"rain",
                 tempHigh,
-                tempLow
+                tempLow,
+                location
             })
         })
     })

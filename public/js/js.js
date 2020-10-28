@@ -10,35 +10,35 @@ const precipProbability = document.querySelector(".precip-value")
 const precipProbabilityType = document.querySelector(".precip-type-value")
 const lat = document.querySelector(".lat-value")
 const long = document.querySelector(".long-value")
-const time = document.querySelector(".time")
+
 const cloud = document.querySelector('.cloud-value')
 const windSpeed = document.querySelector(".wind-speed-value")
 const humidity = document.querySelector(".humidity-value")
+const address = document.querySelector('.address')
 form.addEventListener('submit',(e)=>{
     e.preventDefault()
     const location =  input.value
 
     fetch(`/weather?address=${location}`).then((response)=>{
     response.json().then((data)=>{
-        console.log(data);
         if(data.error){
         response.send(document.querySelector('.message-box').textContent = data.error)
         }else{
-            
+            console.log(data)
             currentSummary.textContent = data.currentSummary
             dailySummary.textContent = data.dailySummary
             precipProbability.textContent = `${data.precipProbability}% `
-            precipProbabilityType.textContent = ` chances of ${data.precipType}`
-            temperatureFeels.innerHTML = `Feels like: ${data.temperature}&#176`
-            temperature.innerHTML = `${data.temperature}&#176`
-            temperatureHigh.innerHTML = `High: ${data.tempHigh}&#176`
-            temperatureLow.innerHTML = `Low: ${data.tempLow}&#176`
-            lat.textContent = `Latitude: ${data.lat}`
-            long.textContent  =`Longitude: ${data.long}`
-            time.textContent  = data.time
-            windSpeed.textContent  = `wind: ${data.windSpeed}`
-            humidity.textContent = `Humidity: ${data.humidity}`
+            precipProbabilityType.textContent = ` chance of ${data.precipType}`
+            temperatureFeels.innerHTML = `Feels like: ${data.temperature}&#176C`
+            temperature.innerHTML = `${data.temperature}&#176C`
+            temperatureHigh.innerHTML = `High: ${data.tempHigh}&#176C`
+            temperatureLow.innerHTML = `Low: ${data.tempLow}&#176C`
+            lat.textContent = `Latitude: ${Math.floor(data.lat)}`
+            long.textContent  =`Longitude: ${Math.floor(data.long)}`
+            windSpeed.innerHTML  = `wind: ${data.windSpeed}↙mph`
+            humidity.textContent = `Humidity: ${data.humidity}%`
             cloud.textContent = `Cloud: ${data.cloudCover}`
+            address.textContent = data.location
         }
     })
 })
